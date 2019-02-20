@@ -1,63 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Parallax Effect | CODEGRID</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="CODEGRID">
-
-    <!-- link stylesheets -->
-    <link rel="stylesheet" href="assets/css/main.css">
-
-    <!-- link jquery files -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/mntn-dev/t.js/t.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="t.min.js"></script>
+    <script src="jquery.js"></script>
+    <link rel="stylesheet" href="index.css">
 </head>
-<body>
-        <!-- <section id="CounterSection">
-                <div class="loader"></div>
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-                <div class="line4"></div>
-                <div class="count"></div>
-        </section> -->
-        <pre id="demo_1">
-            ######<ins><span id="pow-txt" style="display:none;color:tomato;">---[POW!]</span></ins>
-            ##<del>\<ins>1.5</ins></del><del id="pow-trigger">|</del>\
-            </pre>
+<body>      
+<div id="dragable" class="console">
+<div id="dragableheader"  class="consolebar">
+        <img src="https://img.icons8.com/wired/64/000000/command-line.png">
+<div class="consoleSmallDiv" id="consoleSmallDiv">
+<div id="consoleSmallDivClose">×</div>
+</div>
+</div>
+<div id="consoletext" class="consoletext">
+        <pre id="demo_2">
+                                    <del>~~~~~~~~~~~~</del>
+<ins><span style="color:dodgerblue;">Microsoft(R) Windows 98
+(C)Copyright Microsoft Corp. 1981-1998</span>
+c:\></ins><ins>2</ins><kbd>cd Webs<del>ste</del>ite\Bot</kbd>
+<ins>c:\Website\Bot></ins><ins>1</ins><kbd>Connect Reckin Bot</kbd>
+<ins><span style="color:skyblue;">Reckin Bot(R)</span></ins>
+<ins>Connecting</ins>.<ins>3</ins>...
+<ins id="__caret"><span style="color:blue">∙∙∙</span><span style="color:gold">•Sunny</span>, 99 F</ins>
+<ins>c:\tools></ins><ins>1</ins><kbd>weather.exe -"miami, fl"</kbd>
 
-    <script>
-          $(document).ready(function(){
-              var count = 0;
-              var counter = setInterval(function() {
-                  if( count < 101){
-                      $('.count').text(count + '%' );
-                      $('.loader').css('width' , count + '%');
-                      $('.line1').css('width' , count + '%');
-                      $('.line2').css('width' , count + '%');
-                      $('.line3').css('height' , count + '%');
-                      $('.line4').css('height' , count + '%');
-                      count++
-                  }
-                  else{
-                      clearInterval(counter)
-                  }
-              },14)
-              
-          })
-    </script>
-    <script>
-$('#demo_1').t({
- beep:true,
- caret:'<span style="color:hotpink;">•</span>',
- typing:function(elm,chr){
 
-   if(chr.match(/\-trigger/))
-     $('#pow-txt').show().delay(500).fadeOut(0);
-  
- }
+
+
+</pre>
+</div>
+</div>
+
+<script>
+<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/mntn-dev/t.js/t.min.js"></script> 
+<script src="index.js"></script>
+<script type="text/javascript">
+    $('#demo_2').t({
+mistype:7,
+pause_on_click:true,
+typing:function(elm,chr){
+ if(chr.match(/skyblue/))
+  elm.find('.t-caret').hide();
+ else if(chr.match(/__caret/))
+  elm.find('.t-caret').show();
+}
 });
+</script>
+
+
+<script>
+        $( "#dragableheader" ).dblclick(function(){
+      document.getElementById("dragable").style.height = "100%";
+      document.getElementById("dragable").style.width = "100%";
+      document.getElementById("consoletext").style.height= "100%";
+      document.getElementById("consoletext").style.width = "100%";
+      document.getElementById ( "consoletext" ).style.maxHeight = "1000px";
+      document.getElementById("consoleSmallDiv").style.display = "block";
+});
+
+$( "#consoleSmallDivClose" ).click(function(){
+      document.getElementById("dragable").style.height = "328px";
+      document.getElementById("dragable").style.width = "600px";
+      document.getElementById("consoletext").style.height= "278px";
+      document.getElementById("consoletext").style.width = "100%";
+      document.getElementById ( "consoletext" ).style.maxHeight = "278px";
+      document.getElementById("consoleSmallDiv").style.display = "none";
+});
+
     </script>
+
+
+
 </body>
 </html>
